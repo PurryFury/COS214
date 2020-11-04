@@ -10,4 +10,4 @@ run:
 	./main
 
 clean:
-	rm *.o;clear
+	rm *.o main;clear

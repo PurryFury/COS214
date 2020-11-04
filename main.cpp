@@ -1,17 +1,24 @@
 #include "Races.cpp"
 #include "EuropeanRace.cpp"
 #include "NonEuropeanRace.cpp"
+#include "SoftTyre.cpp"
+#include "MediumTyre.cpp"
+#include "HardTyre.cpp"
+#include "Tyres.cpp"
 
 using namespace std;
 int main(){
-  Races* race1 = new EuropeanRace();
-  Races* race2 = new NonEuropeanRace();
+  Tyres* t1 = new SoftTyre();
+  Tyres* t2 = new MediumTyre();
+  Tyres* t3 = new HardTyre();
 
-  race1->describe();
-  cout << endl << endl;
-  race2->describe();
+  cout << t1->getMaxSpeed() << endl;
+  cout << t2->getMaxSpeed() << endl;
+  cout << t3->getMaxSpeed() << endl;
 
-  delete race1;
-  delete race2;
+  delete t1;
+  delete t2;
+  delete t3;
+
   return 0;
 }
