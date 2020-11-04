@@ -1,24 +1,14 @@
-#include "Races.cpp"
-#include "EuropeanRace.cpp"
-#include "NonEuropeanRace.cpp"
-#include "SoftTyre.cpp"
-#include "MediumTyre.cpp"
-#include "HardTyre.cpp"
-#include "Tyres.cpp"
-
+#include "Classes.cpp"
 using namespace std;
+
 int main(){
-  Tyres* t1 = new SoftTyre();
-  Tyres* t2 = new MediumTyre();
-  Tyres* t3 = new HardTyre();
+  RacingTyres* strat = new RacingTyres();
 
-  cout << t1->getMaxSpeed() << endl;
-  cout << t2->getMaxSpeed() << endl;
-  cout << t3->getMaxSpeed() << endl;
+  Tyres** arr = strat->getTyres();
 
-  delete t1;
-  delete t2;
-  delete t3;
+  for (int i = 0; i < 5; i++) {
+    cout << arr[i]->getMaxSpeed() << endl;
+  }
 
   return 0;
 }
