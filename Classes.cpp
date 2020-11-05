@@ -10,3 +10,6 @@
 #include "Tyres.cpp"
 #include "RacingTyres.cpp"
 #include "RiskyStrategy.cpp"
+#include "Sticker.cpp"
+#include "Sponsor.cpp"
+#include "DriverNumber.cpp"
