@@ -2,13 +2,9 @@
 using namespace std;
 
 int main(){
-  RacingTyres* strat = new RacingTyres();
+  CarEngine* engine = new BDWEngine();
 
-  Tyres** arr = strat->getTyres();
-
-  for (int i = 0; i < 5; i++) {
-    cout << arr[i]->getMaxSpeed() << endl;
-  }
+  cout << engine->getSpeed();
 
   return 0;
 }

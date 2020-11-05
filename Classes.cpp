@@ -13,3 +13,6 @@
 #include "DefaultStrategy.cpp"
 #include "RainyStrategy.cpp"
 #include "OwnStrategy.cpp"
+#include "CarEngine.cpp"
+#include "BDWEngine.cpp"
+#include "DerarriEngine.cpp"
