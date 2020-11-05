@@ -10,3 +10,6 @@
 #include "Tyres.cpp"
 #include "RacingTyres.cpp"
 #include "RiskyStrategy.cpp"
+#include "DefaultStrategy.cpp"
+#include "RainyStrategy.cpp"
+#include "OwnStrategy.cpp"
