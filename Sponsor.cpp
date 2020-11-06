@@ -6,7 +6,13 @@
     }
 
     void Sponsor::display(){
-        cout << detail << endl;
+        if(next==0){
+
+        }
+        else{
+            next->display();
+        }
+            cout << detail << endl;
     }
     void Sponsor::add(Sticker* in){
         if(next==0){

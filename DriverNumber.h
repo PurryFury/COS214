@@ -10,6 +10,7 @@ public:
     ~DriverNumber();
 
     virtual void display();
+    virtual void add(Sticker* in){};
 };
 
 #endif // DriverNumber_H
