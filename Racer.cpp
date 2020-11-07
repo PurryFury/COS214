@@ -1,78 +1,60 @@
 #include "Racer.h"
-Racer::Racer(){
-	vehicle1 = nullptr;
-	vehicle2 = nullptr;
-	constructor = nullptr;
-	mention = nullptr;
-	//cout<<"A racer is born"<<endl;
+Racer::Racer(string _name){
+	name = _name;
+	car = NULL;
+	constructor = NULL;
+	mention = NULL;
 }
 
 Racer::~Racer(){
-	if (vehicle1 != nullptr){
-		vehicle1->~Car();
-		//cout<<"vehicle1 was destroyed"<<endl;
+	if (car != NULL){
+		delete car;
 	}
-	delete constructor;
-	constructor = nullptr;
+
+	delete constructor;//only delete here because strat eletes reference to tyres
 	delete mention;
-	mention = nullptr;
-	tyres= nullptr;
-	engine=nullptr;
-	//~ if(vehicle2 != nullptr){
-		//~ vehicle2->~Car();
-		//~ cout<<"vehicle2 was destroyed"<<endl;
-	//~ }
-	
-	//cout<<"The racer has been killed"<<endl;
 }
 
 void Racer::construct(){
-	constructor = nullptr;
 	//"build" the engine
 	constructor = new OrderEngine();
 	constructor->orderPart();
 	engine = constructor->getEngine();
+	delete constructor;//clean engine constructor;
 	//"build" the tyres
-	constructor = nullptr;
 	constructor = new OrderTyres();
 	constructor->orderPart();
-	tyres = constructor->getTyres();
-	
+
 	//"build" the car
-	vehicle1=new Car(tyres, engine);
-	return;
-	
+	car=new Car(constructor->getTyres(), engine);
 }
 
-Car* Racer::getVehicle1(){
-	return vehicle1;
+Car* Racer::getCar(){
+	return car;
 }
 
-//~ Car* Racer::getVehicle2(){
-	//~ return vehicle2;
-//~ }
-
-void Racer::setVehicle1(Car* v){
-	vehicle1 = v;
+void Racer::setCar(Car* c){
+	car = c;
 }
-
-//~ void Racer::setVehicle2(Car* v){
-	//~ vehicle2 = v;
-//~ }
 
 void Racer::addDriverNumber(string s){
-	mention = new DriverNumber(s);
-	mention->display();
+	if(mention == NULL){
+		mention = new DriverNumber(s);
+	}else{
+		mention->add(new DriverNumber(s));
+	}
 }
 
-void Racer::addSticker(Sticker* s){
-	if(mention==nullptr){
-		string nr;
-		cout<<"You can't add a sticker without a driver number!"<<endl;
-		cout<<"Please enter a driver number: ";
-		getline(cin, nr);
-		addDriverNumber(nr);
+void Racer::addSticker(string s){
+	Sticker* stick = new Sponsor(s);
+	if(mention != NULL){
+		mention->add(stick);
+	}else{
+		mention = stick;
 	}
-	mention->add(s);
+}
+
+void Racer::displayStickers(){
+	cout << "Sponsors of " << name << ":" << endl;
 	mention->display();
 }

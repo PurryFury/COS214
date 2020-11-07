@@ -1,3 +1,6 @@
+#ifndef RACER_H
+#define RACER_H
+
 #include <iostream>
 //builder classes
 #include "CarBuilder.h"
@@ -12,30 +15,26 @@
 #include "DriverNumber.h"
 #include "Sponsor.h"
 
-
-#ifndef RACER_H
-#define RACER_H
 using namespace std;
 class Racer{
 	private:
-		Car* vehicle1;
-		//Car* vehicle2;
+		string name;
+		Car* car;
 		CarBuilder* constructor;
+		Sticker* mention;
 		Engine* engine;
-		Tyres** tyres;
-		Sticker* mention
 	public:
 		Racer();
 		~Racer();
 		void construct();
-	
-		void setVehicle1(Car* v);
-		//void setVehicle2(Car* v);
-		Car* getVehicle1();
-		//Car* getVehicle2();
-		
+
+		void setCar(Car* v);
+		Car* getCar();
+
 		void addDriverNumber(string s);
 		void addSticker(Sticker* s);
-		
+
+		void displayStickers();
+
 };
 #endif
