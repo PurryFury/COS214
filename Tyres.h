@@ -10,6 +10,7 @@ public:
   Tyres(float max, float dura, float maneuver);
   float getMaxSpeed();
   float getDurability();
+  void addDurability(float f);
   float getManeuverability();
 };
 

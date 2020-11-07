@@ -3,8 +3,9 @@ using namespace std;
 
 int main(){
   CarEngine* engine = new BDWEngine();
+  RacingTyres* tyres = new RacingTyres();
 
-  cout << engine->getSpeed();
+  Car* car = new Car(tyres->getTyres(), engine);
 
   return 0;
 }

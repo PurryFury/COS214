@@ -18,6 +18,7 @@ public:
   these will populate different set of tyres based on selection
   and getTyres() ----- if pointer is null construct a set otherwise return a switch may be done i assume???
   */
+  ~RacingTyres();
 };
 
 #endif
