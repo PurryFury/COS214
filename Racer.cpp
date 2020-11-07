@@ -14,7 +14,7 @@ Racer::~Racer(){
 	}
 	delete constructor;
 	constructor = nullptr;
-	delete metion;
+	delete mention;
 	mention = nullptr;
 	tyres= nullptr;
 	engine=nullptr;
