@@ -11,7 +11,7 @@ void Car::notifySensors(){
   }
 }
 
-Car::Car(Tyres** _tyres, CarEngine* _engine){
+Car::Car(Tyres** _tyres = NULL, CarEngine* _engine = NULL){
   tyres = _tyres;
   engine = _engine;
   fuelLevel = 100.0f;
@@ -43,4 +43,28 @@ void Car::lapPassed(){
   tyres[currentTyre]->addDurability(-7.3f);
   //notify sensors
   notifySensors();
+}
+
+CarEngine* Car::getEngine(){
+  return engine;
+}
+
+Tyres** Car::getTyres(){
+  return tyres;
+}
+
+int Car::getCurrent(){
+  return currentTyre;
+}
+
+void Car::setCurrent(int i){
+  currentTyre = i;
+}
+
+void Car::setEngine(CarEngine* e){
+  engine = e;
+}
+
+void Car::setTyres(Tyres** t){
+  tyres = t;
 }

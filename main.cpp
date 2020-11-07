@@ -7,5 +7,7 @@ int main(){
 
   Car* car = new Car(tyres->getTyres(), engine);
 
+  car->lapPassed();
+
   return 0;
 }

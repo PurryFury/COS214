@@ -1,6 +1,7 @@
 #ifndef SENSORS_H
 #define SENSORS_H
 #include "Car.h"
+#include "Engineer.h"
 
 class Sensors{
 protected:
