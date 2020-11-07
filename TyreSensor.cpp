@@ -18,6 +18,8 @@ void TyreSensor::checkStatus(){
       switch(x){
         case 1:
           cout << "You decide to stop for a pitstop, you lose 1 spot but don't die" << endl;
+          if(car->position < 10)
+            car->position++;
           //TODO: change state of car, to pitstop which will deduct the one placement in the race;
           crew->doYourJob("tyres");//will call crew to change tyres of the car;
           break;

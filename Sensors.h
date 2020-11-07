@@ -10,6 +10,7 @@ protected:
 public:
   Sensors(Car* c, Engineer* e);
   virtual void checkStatus() = 0;
+  ~Sensors();
 };
 
 #endif

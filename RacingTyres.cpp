@@ -41,3 +41,7 @@ RacingTyres::RacingTyres(){
 Tyres** RacingTyres::getTyres(){
   return strat->getTyres();
 }
+
+RacingTyres::~RacingTyres(){
+  delete strat;
+}

@@ -7,6 +7,7 @@ protected:
   Tyres** tyres;
 public:
   virtual Tyres** getTyres() = 0;
+  ~RacingStrategy();
 };
 
 #endif

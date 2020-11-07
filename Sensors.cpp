@@ -7,3 +7,7 @@ Sensors::Sensors(Car* c, Engineer* e){
   crew = NULL;
   //idk maybe create list here, but this will force to make a set for each sensor
 }
+
+Sensors::~Sensors(){
+  delete crew;//car and engineers will be deleted from Team
+}
