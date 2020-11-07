@@ -12,6 +12,12 @@ Racer::~Racer(){
 		vehicle1->~Car();
 		//cout<<"vehicle1 was destroyed"<<endl;
 	}
+	delete constructor;
+	constructor = nullptr;
+	delete metion;
+	mention = nullptr;
+	tyres= nullptr;
+	engine=nullptr;
 	//~ if(vehicle2 != nullptr){
 		//~ vehicle2->~Car();
 		//~ cout<<"vehicle2 was destroyed"<<endl;
