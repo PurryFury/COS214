@@ -40,8 +40,7 @@ Car::~Car(){
 
 void Car::lapPassed(){
   fuelLevel = fuelLevel - engine->getFuelConsumption();
-  fuelLevel = fuelLevel - 9.2f;
-  tyres[currentTyre]->addDurability(7.3f);
+  tyres[currentTyre]->addDurability(-7.3f);
   //notify sensors
   notifySensors();
 }
