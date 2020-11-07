@@ -22,9 +22,9 @@ class Racer{
 		Car* car;
 		CarBuilder* constructor;
 		Sticker* mention;
-		Engine* engine;
+		CarEngine* engine;
 	public:
-		Racer();
+		Racer(string _name);
 		~Racer();
 		void construct();
 
@@ -32,7 +32,7 @@ class Racer{
 		Car* getCar();
 
 		void addDriverNumber(string s);
-		void addSticker(Sticker* s);
+		void addSticker(string s);
 
 		void displayStickers();
 

@@ -1,4 +1,5 @@
 #include "Racer.h"
+
 Racer::Racer(string _name){
 	name = _name;
 	car = NULL;
