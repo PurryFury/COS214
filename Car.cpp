@@ -68,3 +68,7 @@ void Car::setEngine(CarEngine* e){
 void Car::setTyres(Tyres** t){
   tyres = t;
 }
+
+void Car::resetFuel(){
+  fuelLevel = 100.0f;
+}

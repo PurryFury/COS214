@@ -27,6 +27,7 @@ public:
   void setCurrent(int i);
   void setEngine(CarEngine* e);
   void setTyres(Tyres** t);
+  void resetFuel();
 };
 
 #endif
