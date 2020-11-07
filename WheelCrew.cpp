@@ -20,34 +20,29 @@ void WheelCrew::doYourJob(string job)
 	 if( job=="tyres")
 	 {
 		 //Get the current idex of tyres
-		 int X= raceCar->getCurrent();
+		 cout << "CURRENT SET OF TYRES" << endl;
+		 cout << "Speed: " << raceCar->getTyres()[raceCar->getCurrent()]->getMaxSpeed() << "; Durability: " << raceCar->getTyres()[raceCar->getCurrent()]->getDurability() << "; Maneuverability: " << raceCar->getTyres()[raceCar->getCurrent()]->getManeuverability() << endl;
 
-		 Tyres** tyres=raceCar->getTyres();
-		 float max=tyres[X]->getDurability();
-		 //replace it with the set of tyres with the highest durability
-		 int Y=X;
-		 for(int i=0;i<5;i++)
-		 {
-			 if(max<tyres[i]->getDurability())
-			 {
-				 Y=i;
-			 }
+		 cout << endl << "Tyres in the storage:" << endl;
+
+		 for(int i = 1; i < 6; i++){
+			 cout << i << ". " << "Speed: " << raceCar->getTyres()[i-1]->getMaxSpeed() << "; Durability: " << raceCar->getTyres()[i-1]->getDurability() << "; Maneuverability: " << raceCar->getTyres()[i-1]->getManeuverability() << endl;
 		 }
-		 if(Y==X)
-		 {
-			 cout<<"there are no better tyres to replace with"<<endl;
+
+		 int x;
+
+		 cin >> x;
+		 x--;
+
+		 while(x > 4){
+			 cout << "Wrong input !!!" << endl;
+			 cin >> x;
+			 continue;
 		 }
-		 else
-		 {
-			raceCar->setCurrent(Y);
-			cout<<"tyres have been replaced by wheel crew"<<endl;
-		 }
-	 }
-	 else if(next!=NULL)
-	 {
-		 cout<<"nothing for crew to do";
-	 }
- }
+
+		 raceCar->setCurrent(x);
+ 		}
+}
 void WheelCrew::setCar(Car* c)
 {
 	raceCar=c;
