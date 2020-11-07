@@ -12,5 +12,6 @@ Sensors::Sensors(Car* c, Engineer* e){
 }
 
 Sensors::~Sensors(){
+  cout << "cock" << endl;
   delete crew;//car and engineers will be deleted from Team
 }

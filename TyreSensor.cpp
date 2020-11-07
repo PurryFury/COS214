@@ -20,7 +20,7 @@ void TyreSensor::checkStatus(){
           cout << "You decide to stop for a pitstop, you lose 1 spot but don't die" << endl;
           //TODO: change state of car, to pitstop which will deduct the one placement in the race;
           car->toggleState();
-          car->getState()->handle();//lose one place in the race;
+          car->getState()->handle(car);//lose one place in the race;
           crew->doYourJob("tyres");//will call crew to change tyres of the car;
           car->toggleState();//toggle back to race mode pog champ
           break;

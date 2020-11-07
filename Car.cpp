@@ -13,11 +13,11 @@ void Car::notifySensors(){
   }
 }
 
-CarState* getState(){
+CarState* Car::getState(){
   return state;
 }
 
-void toggleState(){
+void Car::toggleState(){
   delete state;
   if(raceState){
     state = new PitStopState();
@@ -51,17 +51,20 @@ Car::Car(Tyres** _tyres = NULL, CarEngine* _engine = NULL){
   }
 
   currentTyre = x;
-  cout << tyres[currentTyre]->getDurability() << endl;
 }
 
 Car::~Car(){
   delete engine;
   delete state;
+  for(vector<Sensors*>::iterator it = sensors.begin(); it != sensors.end(); it++){
+    delete (*it);
+  }
   //delete sensors here as well;
 }
 
 void Car::lapPassed(){
   state->handle(this);
+  //state works;
 }
 
 CarEngine* Car::getEngine(){
