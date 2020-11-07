@@ -19,5 +19,5 @@ float Tyres::getManeuverability(){
 }
 
 void Tyres::addDurability(float f){
-  durability = durability - f;
+  durability = durability + f;
 }

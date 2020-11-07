@@ -9,7 +9,7 @@ FuelCrew::FuelCrew(Car* c)
 FuelCrew::~FuelCrew()
 {
 }
-	
+
 void FuelCrew::setNextCrew(Crew* nextCrew)
 {
 	next=nextCrew;
@@ -20,13 +20,13 @@ void FuelCrew::doYourJob(string job)
 	if( job=="fuel")
 	{
 		raceCar->resetFuel();
-		cout<<"car fuel tank was refilled";
-		
+		cout<<"car fuel tank was refilled"<<endl;
+
 	}
 	else
 	{
 		next->doYourJob(job);
-		 
+
 	 }
 }
 

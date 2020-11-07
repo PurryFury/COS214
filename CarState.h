@@ -1,6 +1,7 @@
 #ifndef CARSTATE_H
 #define CARSTATE_H
-#include "Car.h"
+
+class Car;
 
 class CarState{
 public:
