@@ -7,4 +7,5 @@ public:
   virtual void prepare() = 0;
   virtual void travel() = 0;
 };
+
 #endif
