@@ -1,7 +1,7 @@
 #include "Aerodynamics.h"
 
-bool Aerodynamics::work(int val){
-	int x = 0;
+bool Aerodynamics::work(float val){
+	float x = 0.0f;
 	if(part == "tyre"){
 		x = hp*40/100;
 		if(val < x)

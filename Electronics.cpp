@@ -1,7 +1,7 @@
 #include "Electronics.h"
 
-bool Electronics::work(int val){
-	int x = 0;
+bool Electronics::work(float val){
+	float x = 0.0f;
 	if(part == "tyre"){
 		x = hp*30/100;
 		if(val < x)

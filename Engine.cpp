@@ -1,7 +1,7 @@
 #include "Engine.h"
 
-bool Engine::work(int val){
-	int x = 0;
+bool Engine::work(float val){
+	float x = 0.0f;
 	if(part == "tyre"){
 		x = hp*25/100;
 		if(val < x)
