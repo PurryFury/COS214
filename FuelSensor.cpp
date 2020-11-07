@@ -21,10 +21,11 @@ void FuelSensor::checkStatus(){
       switch(x){
         case 1:
           cout << "You decide to stop for a pitstop, you lose 1 spot but don't die" << endl;
-          if(car->position < 10)
-            car->position++;
           //TODO: change state of car, to pitstop which will deduct the one placement in the race;
-          crew->doYourJob("fuel");//will call crew to refuel the car;
+          car->toggleState();
+          car->getState()->handle();//lose one place in the race;
+          crew->doYourJob("fuel");//will call crew to refuel car;
+          car->toggleState();//toggle back to race mode pog champ
           break;
         case 2:
           cout << "You have decided to go for one more lap, no ranking has been lost" << endl;

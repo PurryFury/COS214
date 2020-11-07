@@ -9,5 +9,7 @@ int main(){
 
   car->lapPassed();
 
+  cout << car->
+
   return 0;
 }

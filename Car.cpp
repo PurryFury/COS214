@@ -1,5 +1,7 @@
 #include "Car.h"
 #include "Sensors.h"
+#include "RaceState.h"
+#include "PitStopState.h"
 
 void Car::attachSensor(Sensors* sense){
   sensors.push_back(sense);
@@ -11,7 +13,25 @@ void Car::notifySensors(){
   }
 }
 
+CarState* getState(){
+  return state;
+}
+
+void toggleState(){
+  delete state;
+  if(raceState){
+    state = new PitStopState();
+    raceState = false;
+  }else{
+    state = new RaceState();
+    raceState = true;
+  }
+}
+
+
 Car::Car(Tyres** _tyres = NULL, CarEngine* _engine = NULL){
+  state = new RaceState();
+  raceState = true;
   tyres = _tyres;
   engine = _engine;
   fuelLevel = 100.0f;
@@ -36,13 +56,12 @@ Car::Car(Tyres** _tyres = NULL, CarEngine* _engine = NULL){
 
 Car::~Car(){
   delete engine;
+  delete state;
+  //delete sensors here as well;
 }
 
 void Car::lapPassed(){
-  fuelLevel = fuelLevel - engine->getFuelConsumption();
-  tyres[currentTyre]->addDurability(-7.3f);
-  //notify sensors
-  notifySensors();
+  state->handle(this);
 }
 
 CarEngine* Car::getEngine(){
@@ -71,4 +90,12 @@ void Car::setTyres(Tyres** t){
 
 void Car::resetFuel(){
   fuelLevel = 100.0f;
+}
+
+float Car::getFuelLevel(){
+  return fuelLevel;
+}
+
+void Car::setFuelLevel(float fuel){
+  fuelLevel = fuel;
 }

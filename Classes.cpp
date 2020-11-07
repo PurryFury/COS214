@@ -29,3 +29,7 @@
 #include "Chasis.cpp"
 #include "Engine.cpp"
 #include "Electronics.cpp"
+#include "Crew.cpp"
+#include "TyreCrew.cpp"
+#include "WheelCrew.cpp"
+#include "Racer.cpp"

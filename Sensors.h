@@ -2,6 +2,7 @@
 #define SENSORS_H
 #include "Car.h"
 #include "Engineer.h"
+#include "Crew.h"
 
 class Sensors{
 protected:
