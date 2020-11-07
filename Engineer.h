@@ -6,16 +6,16 @@ using namespace std;
 
 class Engineer{
 protected:
-	int hp;
+	float hp;
 	string ID;
 	string part;
 public:
-	Engineer(int hp, string part, string ID);
-	void setHP(int val);
+	Engineer(float hp, string part, string ID);
+	void setHP(float val);
 	void setPart(string part);
-	int getHP();
+	float getHP();
 	string getPart();
 	string getID();
-	virtual bool work(int val) = 0;
+	virtual bool work(float val) = 0;
 };
 #endif

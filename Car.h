@@ -21,6 +21,12 @@ public:
   Car(Tyres** _tyres, CarEngine* _engine);//will decide on sensors here too
   ~Car();
   void lapPassed();
+  CarEngine* getEngine();
+  Tyres** getTyres();
+  int getCurrent();
+  void setCurrent(int i);
+  void setEngine(CarEngine* e);
+  void setTyres(Tyres** t);
 };
 
 #endif

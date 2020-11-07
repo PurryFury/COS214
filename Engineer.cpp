@@ -1,12 +1,12 @@
 #include "Engineer.h"
 
-Engineer::Engineer(int hp, string part, string ID){
+Engineer::Engineer(float hp, string part, string ID){
 	this->ID = ID;
 	this->hp = hp;
 	this->part = part;
 }
 
-void Engineer::setHP(int hp){
+void Engineer::setHP(float hp){
 	this->hp = hp;
 }
 
@@ -14,7 +14,7 @@ void Engineer::setPart(string part){
 	this->part = part;
 }
 
-int Engineer::getHP(){
+float Engineer::getHP(){
 	return hp;
 }
 

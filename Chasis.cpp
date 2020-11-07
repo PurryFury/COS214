@@ -1,7 +1,7 @@
 #include "Chasis.h"
 
-bool Chasis::work(int val){
-	int x = 0;
+bool Chasis::work(float val){
+	float x = 0.0f;
 	if(part == "tyre"){
 		x = hp*35/100;
 		if(val < x)

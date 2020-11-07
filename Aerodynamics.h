@@ -7,7 +7,7 @@ using namespace std;
 class Aerodynamics : public Engineer{
 public:
 	Aerodynamics(string ID) : Engineer(100, "other",ID){};
-	Aerodynamics(int x, string y, string ID): Engineer(x,y,ID){};
-	virtual bool work(int val);
+	Aerodynamics(float x, string y, string ID): Engineer(x,y,ID){};
+	virtual bool work(float val);
 };
 #endif
