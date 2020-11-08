@@ -1,8 +1,6 @@
-#if !defined(Sticker_H)
-#define Sticker_H
-
+#ifndef STICKER_H
+#define STICKER_H
 #include <string>
-#include <iostream>
 
 using namespace std;
 

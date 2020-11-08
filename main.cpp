@@ -17,29 +17,18 @@
 #include <iostream>
 #include <string>
 
-
 int main(){
-	
-	Season* season = new Current();
-	Engineer* temp;
-	temp = season->hireEngineer("Aerodynamics","Aero");
-	cout<<temp->getID()<<endl;
-	cout<<temp->work(50)<<endl;
-	temp->setPart("tyre");
-	cout<<temp->getPart()<<endl;
-	cout<<"Check Tyre: "<<temp->work(40)<<endl;
-	cout<<"Check Tyre: "<<temp->work(39)<<endl;
-	temp = season->hireEngineer("Engine","Eng");
-	cout<<temp->getID()<<endl;
-	cout<<temp->work(60)<<endl;
-	temp = season->hireEngineer("Electronics","Ele");
-	cout<<temp->getID()<<endl;
-	cout<<temp->work(10)<<endl;
-	temp = season->hireEngineer("Chasis","cha");
-	cout<<temp->getID()<<endl;
-	cout<<temp->work(10)<<endl;
-	
-	delete temp;
-	delete season;
-	return 0;
+  Racer* racer = new Racer("Egor");
+
+  racer->addSticker("cock");
+  racer->addSticker("lil");
+  racer->addSticker("lil");
+  racer->addSticker("lil");
+  racer->addSticker("lil");
+  racer->addSticker("lil");
+  
+
+  racer->addDriverNumber("123");
+  racer->displayStickers();
+  return 0;
 }
