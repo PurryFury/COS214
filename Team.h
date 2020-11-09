@@ -3,6 +3,9 @@
 #include <string>
 #include <iostream>
 #include <vector>
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctime>
 #include "Season.h"
 #include "Current.h"
 #include "Next.h"
@@ -28,17 +31,21 @@ private:
 	Racer* racer;
 	string name;
 	string seasonS;
+	int points;
+	int lap;
 	int sensorT[2];
 	int engineerS[4];
 	void displayEngineers(int y);
 	void createRacer();
+	void Race();
+	void calcPosition(float x);
 	Engineer* getEngineer(string A);
 public:
-	Team();
+	Team(int x);
 	~Team();
 	void run();
 	void hireEngineers();
 	void addSensors();
-	
+	int getPoints();
 };
 #endif

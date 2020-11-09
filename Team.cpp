@@ -1,6 +1,8 @@
 #include "Team.h"
 
-Team::Team(){
+Team::Team(int x){
+	points = 0;
+	lap = x;
 	name = "None";
 	seasonS = "none";
 	season = NULL;
@@ -47,6 +49,7 @@ void Team::run(){
 			addSensors();
 			break;
 		case 4:
+			Race();
 			break;
 		default:
 			cout << "\n***No such choice***" << endl;
@@ -229,6 +232,109 @@ void Team::displayEngineers(int y){
 		} 
 		}
 	}
+}
+
+void Team::Race(){
+	if(racer == NULL){
+		cout<<"\n**Need Racer First**"<<endl;
+		return;
+	}else if(engineers.size() == 0){
+		cout<<"\n**Need Engineers**"<<endl;
+		return;
+	}else if(sensorT[0] == 0 && sensorT[1] == 0){
+		cout<<"\n**Add a Sensor**"<<endl;
+		return;
+	}
+	float tyreS = (racer->getCar()->getTyres())[racer->getCar()->getCurrent()]->getMaxSpeed()/100;
+	float tyreM = (racer->getCar()->getTyres())[racer->getCar()->getCurrent()]->getManeuverability()/100;
+	float engineS = racer->getCar()->getEngine()->getSpeed();
+	engineS = engineS * tyreS;
+	
+	if(engineS == 400.0f)
+		racer->getCar()->position = 1;
+	else if(engineS < 400.0f && engineS > 340.0f)
+		racer->getCar()->position = 3;
+	else
+		racer->getCar()->position = 6;
+	
+	engineS = engineS*tyreM;
+	for(int i = 1; i <= lap; i++){
+		calcPosition(engineS);
+		cout<<"\n*********************"<<endl;
+		cout<<"**     LAP "<<i<<"       **"<<endl;
+		cout<<"**CURRENT POSITION:**"<<endl;
+		cout<<"**       "<<racer->getCar()->position<<"         **"<<endl;
+		cout<<"*********************\n"<<endl;
+		racer->getCar()->lapPassed();
+	}
+	switch(racer->getCar()->position){
+		case 1:
+			points = 25;
+			break;
+		case 2:
+			points = 18;
+			break;
+		case 3:
+			points = 15;
+			break;
+		case 4:
+			points = 12;
+			break;
+		case 5:
+			points = 10;
+			break;
+		case 6:
+			points = 8;
+			break;
+		case 7:
+			points = 6;
+			break;
+		case 8:
+			points = 4;
+			break;
+		case 9:
+			points = 2;
+			break;
+		case 10:
+			points = 1;
+			break;
+	}
+	
+}
+
+int Team::getPoints(){
+	return points;
+}
+
+void Team::calcPosition(float x){
+//	srand((unsigned) time(0));
+	int res = 1 + (rand()%4);
+	switch(res){
+		case 1:
+			if(x >= 240.0f){
+				if(racer->getCar()->position > 1)
+					racer->getCar()->position--;
+			}
+			break;
+		case 2:
+			if(x <= 280.0f){
+				if(racer->getCar()->position < 10)
+					racer->getCar()->position++;
+			}
+			break;
+		case 3:
+			if(x > 200.0f){
+				if(racer->getCar()->position > 1)
+					racer->getCar()->position--;
+			}
+			break;
+		case 4:
+			if(x <= 240.0f){
+				if(racer->getCar()->position < 10)
+					racer->getCar()->position++;
+			}
+			break;
+	}		
 }
 
 void Team::createRacer(){

@@ -1,0 +1,64 @@
+#include <iostream>
+#include "Races.h"
+
+#include "Iterator.cpp"
+#include "Iterator.h"
+
+#include "RaceIterator.h"
+#include "RaceIterator.cpp"
+
+#include	"RaceList.h"
+#include	"RaceList.cpp"
+
+#include "EuropeanRaceList.h"
+#include "EuropeanRaceList.cpp"
+
+#include <vector>
+
+
+using namespace std;
+
+int main() 
+{
+	
+	Races** r;
+	r=new Races*[5];
+	r[0]=new Races("Race A",1);
+	r[1]=new Races("Race B",2);
+	r[2]=new Races("Race C",3);
+	r[3]=new Races("Race D",4);
+	r[4]=new Races("Race E",5);
+
+	//Iterator class //only gives me N ERROR when i try to instantiate a class
+
+	
+	
+	// Race list
+	RaceList<Races>* list=new EuropeanRaceList<Races>(5);
+	list->AddToList(r[0]);
+	list->AddToList(r[1]);
+	list->AddToList(r[2]);
+	list->AddToList(r[3]);
+	list->AddToList(r[4]);
+	//ACTUAL IMPLEMENTATION OF THE ITERATOR
+	Iterator<Races>* iter=list->getIterator();
+	while(!iter->isDone())
+	{
+		cout<<"Current race "<<iter->current()->getDescription()<<endl;
+		cout<< "Next Race "<<iter->next()->getDescription()<<endl;
+		cout<<endl;
+	}
+		return 0;
+		
+}
+
+
+
+
+
+
+
+
+
+
+
