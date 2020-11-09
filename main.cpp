@@ -2,17 +2,9 @@
 using namespace std;
 
 int main(){
-  Racer* racer = new Racer("Egor");
+  Team* team = new Team();
+  team->run();
 
-  racer->addSticker("cock");
-  racer->addSticker("lil");
-  racer->addSticker("lil");
-  racer->addSticker("lil");
-  racer->addSticker("lil");
-  racer->addSticker("lil");
-  
 
-  racer->addDriverNumber("123");
-  racer->displayStickers();
   return 0;
 }
